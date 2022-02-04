@@ -1,0 +1,50 @@
+import java.util.Random;
+
+public class CountLettersInArray {
+		public static char getRandomLowerCaseLetter() {
+		char[] alphabets = new char[26];
+		char temp = 'a';
+		for(int i=0; i<alphabets.length; i++) {
+		alphabets[i] = temp;
+		temp++;
+		}
+		return alphabets[new Random().nextInt(26)];
+}
+		public static char[] createArray() {
+		char[] chars = new char[200];
+		for (int i = 0; i < chars.length; i++)
+		chars[i] = getRandomLowerCaseLetter();
+		return chars;
+}
+		public static void displayArray(char[] chars) {
+		for (int i = 0; i < chars.length; i++) {
+		if ((i + 1) % 20 == 0)
+		System.out.println(chars[i]);
+		else
+		System.out.print(chars[i] + " ");
+	}
+}
+		public static int[] countLetters(char[] chars) {
+		int[] counts = new int[26];
+		for (int i = 0; i < chars.length; i++)
+		counts[chars[i] - 'a']++;
+		return counts;
+}
+			public static void displayCounts(int[] counts) {   
+			for (int i = 0; i < counts.length; i++) {
+			if ((i + 1) % 10 == 0)
+			System.out.println((char)(i + 'a') + " " + counts[i]);
+			else
+			System.out.println((char)(i + 'a') + " " + counts[i]); 
+		}
+   }
+   public static void main(String[] args) {
+	char[] chars = createArray();
+	System.out.println("The letters are:");
+	displayArray(chars);
+	int[] counts = countLetters(chars);
+	System.out.println();
+	System.out.println("number of occurence");
+    displayCounts(counts);
+	}
+}
