@@ -1,8 +1,9 @@
 import java.util.Random;
 
 public class CountLettersInArray {
-		public static char getRandomLowerCaseLetter() {
-		char[] alphabets = new char[26];
+		private static char[] alphabets;
+		public static char getRandomLowerCaseLetter() { 
+		alphabets = new char[26];
 		char temp = 'a';
 		for(int i=0; i<alphabets.length; i++) {
 		alphabets[i] = temp;
@@ -30,14 +31,6 @@ public class CountLettersInArray {
 		counts[chars[i] - 'a']++;
 		return counts;
 }
-			public static void displayCounts(int[] counts) {   
-			for (int i = 0; i < counts.length; i++) {
-			if ((i + 1) % 10 == 0)
-			System.out.println((char)(i + 'a') + " " + counts[i]);
-			else
-			System.out.println((char)(i + 'a') + " " + counts[i]); 
-		}
-   }
    public static void main(String[] args) {
 	char[] chars = createArray();
 	System.out.println("The letters are:");
@@ -45,6 +38,8 @@ public class CountLettersInArray {
 	int[] counts = countLetters(chars);
 	System.out.println();
 	System.out.println("number of occurence");
-    displayCounts(counts);
+	for (int i = 0; i < counts.length; i++) {
+		System.out.println(alphabets[i]+" "+counts[i]); 
+		}
 	}
 }
